@@ -4,8 +4,23 @@ Test demo sample project in Laravel 5
 
 Set up locally via AMPPS (not Homestead)
 
-## Quick Steps
+## Quick Step Notes
 
-/app/Http/routes.php
+##Setup
+
+Rename .env.sample file to .env for development setup (local)
+
+
+## Create new controller
+
+php artisan make:controller PagesController
+
+php artisan make:controller PagesController --plain  (for a plain controller)
+
+php artisan help make:controller - help with the make controller
+
+# Passing Data/Variables to Views
+
+
 
 
