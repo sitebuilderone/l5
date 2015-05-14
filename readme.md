@@ -4,12 +4,9 @@ Test demo sample project in Laravel 5
 
 Set up locally via AMPPS (not Homestead)
 
-## Quick Step Notes
-
 ##Setup
 
 Rename .env.sample file to .env for development setup (local)
-
 
 ## Create new controller
 
@@ -21,7 +18,11 @@ php artisan help make:controller - help with the make controller
 
 # Passing Data/Variables to Views
 
-#Configuration
+#Database Migrations
 
+http://laravel.com/docs/5.0/migrations
 
+php artisan migrate
 
+Create a new table
+php artisan make:migration create_articles_table --create="articles"
