@@ -18,7 +18,7 @@ php artisan help make:controller - help with the make controller
 
 # Passing Data/Variables to Views
 
-#Database Migrations
+##Database Migrations
 
 http://laravel.com/docs/5.0/migrations
 
@@ -26,3 +26,10 @@ php artisan migrate
 
 Create a new table
 php artisan make:migration create_articles_table --create="articles"
+
+add a new column
+php artisan make:migration add_excerpt_to_articles_table --table="articles"
+
+to drop a column, need to add via composer
+composer require doctrine/dbal
+
