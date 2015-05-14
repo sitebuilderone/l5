@@ -21,10 +21,7 @@ php artisan help make:controller - help with the make controller
 
 # Passing Data/Variables to Views
 
-#Blade
-
-
-
+#Configuration
 
 
 
