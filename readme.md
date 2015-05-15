@@ -95,6 +95,41 @@ then re-start tinker and ...
 $article = App\Article::create(['title'=>'New article yo', 'body'=>'Accidenti molto plenti', 'published_at'=>Carbon\Carbon::now()]);
 ```
 
+
+## Fetching records and displaying in View
+
+Create a controller 
+
+```
+php artisan make:controller ArticlesController --plain
+```
+within the controller
+```
+// import the class
+use App\Article;
+```
+
+## Forms
+
+Use a 3rd party tool for forms
+```
+composer require illuminate/html
+```
+register within Laravel config - add to app.php
+```
+'Illuminate\Html\HtmlServiceProvider',
+```
+then under 'alias'
+```
+		'Form'		=> 'Illuminate\Html\FormFacade',
+		'Html'		=> 'Illuminate\Html\HtmlFacade',
+```
+
+
+
+
+
+
 ###References
 
 https://help.github.com/articles/markdown-basics/

@@ -6,7 +6,11 @@ use App\Article;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-use Illuminate\Http\Request;
+use Carbon\Carbon;
+
+//use Illuminate\Http\Request;
+
+use Request;
 
 class ArticlesController extends Controller {
 
@@ -16,7 +20,12 @@ class ArticlesController extends Controller {
 		//return 'Get all articles';
 
 		// fetch all articles
-		$articles = Article::all();
+		//$articles = Article::all();
+
+		$articles = Article::latest('published_at')->get();
+
+		// or can be writter
+		// $articles = Article::order_by('published_at', 'desc')->get();
 
 		return view ('articles.index', compact('articles'));
 		// same as above
@@ -42,7 +51,27 @@ class ArticlesController extends Controller {
 
 		//return $article;
 		return view('articles.show', compact('article'));
-		
+	}
+
+	public function create()
+	{
+		// load a view
+		return view('articles.create');
+	}
+
+	public function store()
+	{
+		$input = Request::all();
+
+		$input['published_at'] = Carbon::now();
+
+		Article::create($input);
+
+		//return $input;
+
+		// redirect
+		return redirect('articles');
+
 
 	}
 
