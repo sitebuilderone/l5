@@ -22,8 +22,9 @@ class ArticlesController extends Controller {
 		// fetch all articles
 		//$articles = Article::all();
 
-		$articles = Article::latest('published_at')->get();
-
+		//$articles = Article::latest('published_at')->where('published_at', '<=', Carbon::now())-> get();
+		$articles = Article::latest('published_at')->published()-> get();
+		
 		// or can be writter
 		// $articles = Article::order_by('published_at', 'desc')->get();
 
@@ -49,6 +50,8 @@ class ArticlesController extends Controller {
 			abort(404);
 		}
 
+		//dd($article->created_at->year);
+
 		//return $article;
 		return view('articles.show', compact('article'));
 	}
@@ -61,14 +64,12 @@ class ArticlesController extends Controller {
 
 	public function store()
 	{
-		$input = Request::all();
-
-		$input['published_at'] = Carbon::now();
-
-		Article::create($input);
+		//$input = Request::all();
+		//$input['published_at'] = Carbon::now();
+		//Article::create($input);
+		Article::create(Request::all());
 
 		//return $input;
-
 		// redirect
 		return redirect('articles');
 
