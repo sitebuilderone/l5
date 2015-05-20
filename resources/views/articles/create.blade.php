@@ -23,11 +23,19 @@
 		{!! Form::input('date', 'published_at', date('Y-m-d'), ['class'=>'form-control']) !!}
 	</div>
 
-	
+	@if($errors->any())
+	<ul class="alert alert-danger">
+		@foreach ($errors->all() as $error)
+			<li>{{ $error }}</li>
+		@endforeach
+	</ul>
+	@endif
+
 	<div class="form-group">
 		{!! Form::submit('Add Article', null, ['class'=>'btn btn-primary form-control']) !!}
 	</div>
 
 {!! Form::close() !!}
+
 
 @stop

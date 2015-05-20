@@ -125,7 +125,32 @@ then under 'alias'
 		'Html'		=> 'Illuminate\Html\HtmlFacade',
 ```
 
+## Validation
 
+Create a form request - make some kind up request with your application
+
+```
+php artisan make:request CreateArticle
+```
+located in
+```
+app/http/requests
+```
+more validation located at:
+
+http://www.laravel.com/docs/validation/
+
+Sample validation output within create.blade.php
+
+```
+	@if($errors->any())
+	<ul class="alert alert-danger">
+		@foreach ($errors->all() as $error)
+			<li>{{ $error }}</li>
+		@endforeach
+	</ul>
+	@endif
+```
 
 
 

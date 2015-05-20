@@ -1,16 +1,11 @@
 <?php namespace App\Http\Controllers;
-
 // import the class
 use App\Article;
-
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-
 use Carbon\Carbon;
-
 //use Illuminate\Http\Request;
-
-use Request;
+//use Request;
 
 class ArticlesController extends Controller {
 
@@ -62,19 +57,11 @@ class ArticlesController extends Controller {
 		return view('articles.create');
 	}
 
-	public function store()
+	public function store(Requests\CreateArticleRequest $request)
 	{
-		//$input = Request::all();
-		//$input['published_at'] = Carbon::now();
-		//Article::create($input);
-		Article::create(Request::all());
-
-		//return $input;
-		// redirect
+		// validation
+		Article::create($request->all());
 		return redirect('articles');
-
-
 	}
-
 
 }
