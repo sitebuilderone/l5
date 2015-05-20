@@ -17,3 +17,8 @@ Route::post('articles', 'ArticlesController@store');
 // generates all routes for CRUD
 Route::resource('articles', 'ArticlesController');
 
+
+Route::controllers([
+	'auth' => 'Auth\AuthController',
+	'password' => 'Auth\PasswordController',
+	]);
