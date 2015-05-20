@@ -162,6 +162,21 @@ Route::resource('articles', 'ArticlesController');
 Form model-binding
 Pass in a model 
 
+##Eloquent Relationships
+
+One to many
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 ###Artisan Commands
@@ -170,6 +185,14 @@ List all routes
 ```
 php artisan route:list
 ```
+
+Reset and roll back all database migrations everything
+```
+php artisan migrate:refresh
+```
+
+
+
 
 
 ###References
