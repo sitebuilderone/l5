@@ -2,7 +2,7 @@
 
 use App\Http\Requests\Request;
 
-class CreateArticleRequest extends Request {
+class ArticleRequest extends Request {
 
 	/**
 	 * Determine if the user is authorized to make this request.
@@ -28,6 +28,7 @@ class CreateArticleRequest extends Request {
 			'body' => 'required|min:5',
 			'published_at' => 'required|date'
 		];
+
 	}
 
 }

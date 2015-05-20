@@ -151,8 +151,25 @@ Sample validation output within create.blade.php
 	</ul>
 	@endif
 ```
+##Routes Optimization
+
+```
+// New resource for articles and controller responsible
+// generates all routes for CRUD
+Route::resource('articles', 'ArticlesController');
+```
+
+Form model-binding
+Pass in a model 
 
 
+
+###Artisan Commands
+
+List all routes
+```
+php artisan route:list
+```
 
 
 ###References

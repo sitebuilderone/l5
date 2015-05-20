@@ -2,9 +2,10 @@
 // import the class
 use App\Article;
 use App\Http\Requests;
+use App\Http\Requests\ArticleRequest;
 use App\Http\Controllers\Controller;
 use Carbon\Carbon;
-//use Illuminate\Http\Request;
+use Illuminate\Http\Request;
 //use Request;
 
 class ArticlesController extends Controller {
@@ -44,24 +45,35 @@ class ArticlesController extends Controller {
 		{
 			abort(404);
 		}
-
 		//dd($article->created_at->year);
 
 		//return $article;
 		return view('articles.show', compact('article'));
 	}
-
 	public function create()
 	{
 		// load a view
 		return view('articles.create');
 	}
 
-	public function store(Requests\CreateArticleRequest $request)
+	public function store(Requests\ArticleRequest $request)
 	{
 		// validation
 		Article::create($request->all());
 		return redirect('articles');
 	}
 
+	// editing an article - shows page to edit exist
+	public function edit($id)
+	{
+		$article = Article::findOrFail($id);
+		return view('articles.edit', compact('article'));
+	}
+
+	public function update($id, ArticleRequest $request)
+	{
+		$article = Article::findOrFail($id);
+		$article->update($request->all());
+		return redirect('articles');
+	}
 }
