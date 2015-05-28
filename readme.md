@@ -167,7 +167,12 @@ Pass in a model
 One to many
 
 
-##Authentication
+##Authentication & Middleware
+
+```
+php artisan make:model Tag
+```
+
 
 
 

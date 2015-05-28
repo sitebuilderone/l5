@@ -10,6 +10,15 @@ use Illuminate\Http\Request;
 
 class ArticlesController extends Controller {
 
+	// Authentication with middleware
+	// Constructor
+	public function __construct()
+	{
+		$this->middleware('auth', ['only' => 'create']);
+		// or can use
+		// $this->middleware('auth', ['except' => 'index']);
+	}
+
 	// call a method index
 	public function index()
 	{
@@ -52,6 +61,9 @@ class ArticlesController extends Controller {
 	}
 	public function create()
 	{
+
+
+
 		// load a view
 		return view('articles.create');
 	}
