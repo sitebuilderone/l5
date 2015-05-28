@@ -61,17 +61,24 @@ class ArticlesController extends Controller {
 	}
 	public function create()
 	{
-
+		$tags = \App\Tag::lists('name', 'name');
 
 
 		// load a view
-		return view('articles.create');
+		return view('articles.create', compact('tags'));
 	}
 
 	public function store(Requests\ArticleRequest $request)
 	{
-		// validation
-		Article::create($request->all());
+			// validation
+		//Article::create($request->all());
+		
+		$article = Auth::user()->articles()->create($request->all());
+
+		//$tagIds = $request->input('tags');
+
+		$article->tags()->attach($request->input('tags'));
+
 		return redirect('articles');
 	}
 

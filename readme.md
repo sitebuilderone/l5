@@ -172,14 +172,19 @@ One to many
 ```
 php artisan make:model Tag
 ```
+create migration and pivot table
+```
+php artisan make:migration create_tags_table --create=tags
+```
 
+#php Tinker
 
-
-
-
-
-
-
+```
+//create
+\App\Tag::create(['name'=>'work']);
+// show all
+\App\Tag::lists('name');
+```
 
 
 
