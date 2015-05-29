@@ -61,21 +61,30 @@ class ArticlesController extends Controller {
 	}
 	public function create()
 	{
-
+		$tags = \App\Tag::lists('name', 'name');
 
 
 		// load a view
-		return view('articles.create');
+		return view('articles.create', compact('tags'));
 	}
 
 	public function store(Requests\ArticleRequest $request)
 	{
+
 		// validation
-		Auth::user()->articles()->create($request->all());
+//		Auth::user()->articles()->create($request->all());
 		//Article::create($request->all());
 
 		// display a flash message
 		\Session::flash('flash_message', 'Your article has been created');
+			// validation
+		//Article::create($request->all());
+		
+		$article = Auth::user()->articles()->create($request->all());
+
+		//$tagIds = $request->input('tags');
+
+		$article->tags()->attach($request->input('tags'));
 
 		return redirect('articles');
 	}
