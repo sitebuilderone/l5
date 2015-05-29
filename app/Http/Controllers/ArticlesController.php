@@ -71,7 +71,12 @@ class ArticlesController extends Controller {
 	public function store(Requests\ArticleRequest $request)
 	{
 		// validation
-		Article::create($request->all());
+		Auth::user()->articles()->create($request->all());
+		//Article::create($request->all());
+
+		// display a flash message
+		\Session::flash('flash_message', 'Your article has been created');
+
 		return redirect('articles');
 	}
 
